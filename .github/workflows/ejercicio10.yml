@@ -19,8 +19,8 @@ jobs:
         mkdir -p out
         javac -d out src/*.java
         
-        - name: ejecutar test
-        run: java -ea -cp out CalculadoraTest
+    - name: ejecutar test
+      run: java -ea -cp out CalculadoraTest
       
     - name: Crear jar
       run: java cfe out/calculadora.jar Main -C out .
