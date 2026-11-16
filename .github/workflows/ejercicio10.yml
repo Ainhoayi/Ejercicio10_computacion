@@ -32,4 +32,4 @@ jobs:
       uses: actions/upload-artifact@v5
       with:
         name: calculadora
-        path. out/calculadora.jar
+        path: out/calculadora.jar
