@@ -4,27 +4,26 @@ on:
     branches: [ main ]
 jobs:
   calculadora:
-    runs-on:  ubuntu-latest
-	steps:
-	- name: descargamos repositorio
-	  uses: action/checkout@v5
-      
-	- name: configuracion java
-	  uses: actions/setup-java@v5
-	  with:
-	    distribution: temurin
+    runs-on: ubuntu-latest
+    steps:
+    - name: descargamos repositorio
+      uses: action/checkout@v5
+    - name: configuracion java
+      uses: actions/setup-java@v5
+      with:
+        distribution: temurin
         java-version: '21'
         
-	- name: Creacion carpeta y compilacion
-	  run: |
-	    mkdir -p out
-	    javac -d out src/*.java
+    - name: Creacion carpeta y compilacion
+      run: |
+        mkdir -p out
+        javac -d out src/*.java
         
-	- name: ejecutar test
-	  run: java -ea -cp out CalculadoraTest
+        - name: ejecutar test
+        run: java -ea -cp out CalculadoraTest
       
-	- name: Crear jar
-	  run: java cfe out/calculadora.jar Main -C out .
+    - name: Crear jar
+      run: java cfe out/calculadora.jar Main -C out .
       
     - name: ejecutar Calculadora.jar
       run: java -jar out/calculadora.jar
